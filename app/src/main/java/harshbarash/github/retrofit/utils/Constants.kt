@@ -3,6 +3,6 @@ package harshbarash.github.retrofit.utils
 class Constants {
 
     companion object {
-        const val  BASE_URL = "https://jsonplaceholder.typecode.com"
+        const val  BASE_URL = "https://jsonplaceholder.typicode.com"
     }
 }
