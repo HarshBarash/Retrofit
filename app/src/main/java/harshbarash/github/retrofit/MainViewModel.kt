@@ -7,12 +7,14 @@ import harshbarash.github.retrofit.model.Post
 import harshbarash.github.retrofit.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import retrofit2.http.OPTIONS
 
 class MainViewModel(private val repository: Repository): ViewModel() {
 
     val myResponse: MutableLiveData<Response<Post>> = MutableLiveData()
     val myResponse2: MutableLiveData<Response<Post>> = MutableLiveData()
     val myCustomPosts: MutableLiveData<Response<List<Post>>> = MutableLiveData()
+    val myCustomPosts2: MutableLiveData<Response<List<Post>>> = MutableLiveData()
 
     fun getPost() {
         viewModelScope.launch {
@@ -29,10 +31,17 @@ class MainViewModel(private val repository: Repository): ViewModel() {
         }
     }
 
-    fun getCustomPost(userId: Int, sort: String, order: String) {
+    fun getCustomPosts(userId: Int, sort: String, order: String) {
         viewModelScope.launch {
-            val response = repository.getCustomsPosts(userId, sort, order)
+            val response = repository.getCustomPosts(userId, sort, order)
             myCustomPosts.value = response
+        }
+    }
+
+    fun getCustomPosts2(userId: Int, options: Map<String, String>) {
+        viewModelScope.launch {
+            val response = repository.getCustomPosts2(userId, options)
+            myCustomPosts2.value = response
         }
     }
 }
