@@ -1,0 +1,38 @@
+package harshbarash.github.retrofit.adapter
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import harshbarash.github.retrofit.databinding.ItemLayoutBinding
+import harshbarash.github.retrofit.model.Post
+
+class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+
+    private var myList = emptyList<Post>()
+
+    inner class MyViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
+
+   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder(ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    }
+
+    override fun getItemCount(): Int {
+        return myList.size
+
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val currentItem = myList[position]
+        holder.binding.userIdTxt.text = myList[position].userId.toString()
+        holder.binding.idTxt.text = myList[position].id.toString()
+        holder.binding.titleTxt.text = myList[position].title
+        holder.binding.bodyTxt.text = myList[position].body
+
+    }
+
+    fun setData(newList: List<Post>){
+        myList = newList
+        notifyDataSetChanged()
+    }
+
+}
