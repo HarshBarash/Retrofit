@@ -5,8 +5,10 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface SimpleApi {
+
+    //control
     @GET("posts/1")
-    suspend fun getPost(): Response<Post>
+    suspend fun getPost(@Header("Auth") auth: String): Response<Post>
 
     @GET("posts/{postNumber}")
     suspend fun getPost2(

@@ -30,10 +30,14 @@ class MainActivity : AppCompatActivity() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
-//        val  myPost = Post(2,2, "Title-test", "Body-test")
+        //dynamic control
+//        viewModel.getPost("121")
+
         viewModel.pushPost2(2,2, "Title-test", "Body-test")
 
 //        viewModel.getCustomPosts(2, "id", "desc")
+
+
         viewModel.myCustomPosts.observe(this, Observer { response ->
             if(response.isSuccessful){
 
