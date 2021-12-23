@@ -30,26 +30,55 @@ class MainActivity : AppCompatActivity() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
+        //-------------------------JSON PlaceHolder Posts---------------------------
+        //что стоит перед backlash, это комментаровано. OLD
+
         //dynamic control
-//        viewModel.getPost("121")
+        //viewModel.getPost("121")
 
-        viewModel.pushPost2(2,2, "Title-test", "Body-test")
+//        viewModel.pushPost2(2,2, "Title-test", "Body-test")
 
-//        viewModel.getCustomPosts(2, "id", "desc")
+        //viewModel.getCustomPosts(2, "id", "desc")
 
 
-        viewModel.myCustomPosts.observe(this, Observer { response ->
+//        viewModel.myCustomPosts.observe(this, Observer { response ->
+//            if(response.isSuccessful){
+//
+//                Log.d("Main", response.body().toString())
+//                Log.d("Main", response.code().toString())
+//                Log.d("Main", response.message().toString())
+
+                //response.body()?.let { myAdapter.setData(it) }
+//        } else {
+//            Toast.makeText(this, response.code(), Toast.LENGTH_SHORT).show()
+//            }
+//        })
+
+
+        //-------------------------Rails Jobs ---------------------------
+        //что стоит перед backlash, это комментаровано. OLD
+
+        //dynamic control
+        //viewModel.getPost("121")
+
+        viewModel.pushJob2(2,"Junior", "Evrone", "They are the best. Ruby Life")
+
+        //viewModel.getCustomPosts(2, "id", "desc")
+
+
+        viewModel.CustomJobs.observe(this, Observer { response ->
             if(response.isSuccessful){
 
                 Log.d("Main", response.body().toString())
                 Log.d("Main", response.code().toString())
                 Log.d("Main", response.message().toString())
 
-//                response.body()?.let { myAdapter.setData(it) }
+        //response.body()?.let { myAdapter.setData(it) }
         } else {
             Toast.makeText(this, response.code(), Toast.LENGTH_SHORT).show()
             }
         })
+
     }
 
     private fun setupRecyclerView() {
