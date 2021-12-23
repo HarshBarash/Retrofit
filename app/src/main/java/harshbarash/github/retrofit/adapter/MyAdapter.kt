@@ -4,11 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import harshbarash.github.retrofit.databinding.ItemLayoutBinding
+import harshbarash.github.retrofit.model.Job
 import harshbarash.github.retrofit.model.Post
 
 class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    private var myList = emptyList<Post>()
+    //Placeholder
+//    private var myList = emptyList<Post>()
+
+    //Rails
+    private var myList = emptyList<Job>()
 
     inner class MyViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -23,16 +28,29 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = myList[position]
-        holder.binding.userIdTxt.text = myList[position].userId.toString()
-        holder.binding.idTxt.text = myList[position].id.toString()
-        holder.binding.titleTxt.text = myList[position].title
-        holder.binding.bodyTxt.text = myList[position].body
+        // JSON PLACEHOLDER
+//        holder.binding.userIdTxt.text = myList[position].userId.toString()
+//        holder.binding.idTxt.text = myList[position].id.toString()
+//        holder.binding.titleTxt.text = myList[position].title
+//        holder.binding.bodyTxt.text = myList[position].body
+
+        // Rails LOCALHOST:3000
+        holder.binding.userIdTxt.text = myList[position].id.toString()
+        holder.binding.idTxt.text = myList[position].company.toString()
+        holder.binding.titleTxt.text = myList[position].position
+        holder.binding.bodyTxt.text = myList[position].description
 
     }
 
-    fun setData(newList: List<Post>){
+    //Placeholder. Posts
+//    fun setData(newList: List<Post>){
+//        myList = newList
+//        notifyDataSetChanged()
+//    }
+
+    //Rails Jobs
+    fun setData(newList: List<Job>){
         myList = newList
         notifyDataSetChanged()
     }
-
 }
