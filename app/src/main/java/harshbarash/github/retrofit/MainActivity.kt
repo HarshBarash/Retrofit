@@ -61,9 +61,10 @@ class MainActivity : AppCompatActivity() {
         //dynamic control
         //viewModel.getPost("121")
 
-        viewModel.pushJob2(2,"Junior", "Evrone", "They are the best. Ruby Life")
+        viewModel.getCustomJobs(9, "id", "desc")
 
-        //viewModel.getCustomPosts(2, "id", "desc")
+//        viewModel.pushJob2(2,"Junior", "Evrone", "They are the best. Ruby Life")
+
 
 
         viewModel.CustomJobs.observe(this, Observer { response ->
@@ -73,10 +74,8 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Main", response.code().toString())
                 Log.d("Main", response.message().toString())
 
-        //response.body()?.let { myAdapter.setData(it) }
-        } else {
-            Toast.makeText(this, response.code(), Toast.LENGTH_SHORT).show()
-            }
+                response.body()?.let { myAdapter.setData(it) }
+        }
         })
 
     }

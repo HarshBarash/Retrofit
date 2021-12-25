@@ -1,6 +1,6 @@
 package harshbarash.github.retrofit.model
 
-class Job (
+data class Job (
     val id: Int,
     val company: String,
     val position: String,
