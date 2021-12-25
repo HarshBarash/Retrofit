@@ -9,7 +9,6 @@ class MyInterceptor: Interceptor {
             .newBuilder()
             .addHeader("Content-Type","application/json")
             .addHeader("X-Platform","Android")
-            .addHeader("X-Auth-Token","1234567890")
             .build()
         return chain.proceed(request)
     }

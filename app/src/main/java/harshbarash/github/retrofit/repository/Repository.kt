@@ -62,4 +62,9 @@ class Repository {
     suspend fun pushJob2(id: Int, company: String, position: String, description: String): Response<Job> {
         return RetrofitInstance.api.pushJob2(id, company, position, description)
     }
+
+    suspend fun getJobs(sort: String, order: String ): Response<List<Job>> {
+        return RetrofitInstance.api.getJobs(sort, order)
+    }
+
 }

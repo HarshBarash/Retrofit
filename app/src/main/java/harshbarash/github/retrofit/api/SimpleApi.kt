@@ -82,4 +82,10 @@ interface SimpleApi {
         @Field("description") description: String
     ): Response<Job>
 
+    @GET("jobs")
+    suspend fun getJobs(
+    @Query("_sort") sort: String,
+    @Query("_order") order: String
+    ): Response<List<Job>>
+
 }
