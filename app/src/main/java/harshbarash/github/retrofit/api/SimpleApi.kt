@@ -47,7 +47,7 @@ interface SimpleApi {
 
     //---------------------Rails. localhost:3000--------------------------//
 
-        @GET("jobs/1")
+    @GET("jobs/1")
     suspend fun getJob(@Header("Auth") auth: String): Response<Job>
 
     @GET("jobs/{jobNumber}")
@@ -81,4 +81,11 @@ interface SimpleApi {
         @Field("position") position: String,
         @Field("description") description: String
     ): Response<Job>
+
+    @GET("jobs")
+    suspend fun getJobs(
+    @Query("_sort") sort: String,
+    @Query("_order") order: String
+    ): Response<List<Job>>
+
 }

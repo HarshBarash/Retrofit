@@ -28,7 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
+
+
+
 
         //-------------------------JSON PlaceHolder Posts---------------------------
         //что стоит перед backlash, это комментаровано. OLD
@@ -55,30 +58,25 @@ class MainActivity : AppCompatActivity() {
 //        })
 
 
+
+
         //-------------------------Rails Jobs ---------------------------
         //что стоит перед backlash, это комментаровано. OLD
 
         //dynamic control
         //viewModel.getPost("121")
 
-        viewModel.pushJob2(2,"Junior", "Evrone", "They are the best. Ruby Life")
+        viewModel.getJobs("id", "desc")
 
-        //viewModel.getCustomPosts(2, "id", "desc")
+//        viewModel.pushJob2(2,"Junior", "Evrone", "They are the best. Ruby Life")
 
 
-        viewModel.CustomJobs.observe(this, Observer { response ->
+
+        viewModel.Jobs.observe(this, Observer { response ->
             if(response.isSuccessful){
-
-                Log.d("Main", response.body().toString())
-                Log.d("Main", response.code().toString())
-                Log.d("Main", response.message().toString())
-
-        //response.body()?.let { myAdapter.setData(it) }
-        } else {
-            Toast.makeText(this, response.code(), Toast.LENGTH_SHORT).show()
-            }
+                response.body()?.let { myAdapter.setData(it) }
+        }
         })
-
     }
 
     private fun setupRecyclerView() {
