@@ -10,10 +10,10 @@ import harshbarash.github.retrofit.model.Post
 class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     //Placeholder
-//    private var myList = emptyList<Post>()
+    private var myList = emptyList<Post>()
 
     //Rails
-    private var myList = emptyList<Job>()
+//    private var myList = emptyList<Job>()
 
     inner class MyViewHolder(val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -29,28 +29,28 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = myList[position]
         // JSON PLACEHOLDER
-//        holder.binding.userIdTxt.text = myList[position].userId.toString()
-//        holder.binding.idTxt.text = myList[position].id.toString()
-//        holder.binding.titleTxt.text = myList[position].title
-//        holder.binding.bodyTxt.text = myList[position].body
+        holder.binding.userIdTxt.text = myList[position].userId.toString()
+        holder.binding.idTxt.text = myList[position].id.toString()
+        holder.binding.titleTxt.text = myList[position].title
+        holder.binding.bodyTxt.text = myList[position].body
 
-        // Rails LOCALHOST:3000
-        holder.binding.userIdTxt.text = myList[position].id.toString()
-        holder.binding.idTxt.text = myList[position].company.toString()
-        holder.binding.titleTxt.text = myList[position].position
-        holder.binding.bodyTxt.text = myList[position].description
+        // Rails LOCALHOST:3001
+//        holder.binding.userIdTxt.text = myList[position].id.toString()
+//        holder.binding.idTxt.text = myList[position].company
+//        holder.binding.titleTxt.text = myList[position].position
+//        holder.binding.bodyTxt.text = myList[position].description
 
     }
 
     //Placeholder. Posts
-//    fun setData(newList: List<Post>){
-//        myList = newList
-//        notifyDataSetChanged()
-//    }
-
-    //Rails Jobs
-    fun setData(newList: List<Job>){
+    fun setData(newList: List<Post>){
         myList = newList
         notifyDataSetChanged()
     }
+
+    //Rails Jobs
+//    fun setData(newList: List<Job>){
+//        myList = newList
+//        notifyDataSetChanged()
+//    }
 }
