@@ -11,7 +11,7 @@ import java.nio.ByteOrder
 class Repository {
 
     //JSON PlaceHolder. Posts
-
+//
 //    suspend fun getPost(auth: String): Response<Post> {
 //        return RetrofitInstance.api.getPost(auth)
 //    }
@@ -35,7 +35,10 @@ class Repository {
 //    suspend fun pushPost2(userId: Int, id: Int, title: String, body: String): Response<Post> {
 //        return RetrofitInstance.api.pushPost2(userId, id, title, body)
 //    }
-
+//
+//    suspend fun getPosts(sort: String, order: String ): Response<List<Post>> {
+//        return RetrofitInstance.api.getPosts(sort, order)
+//    }
 
     //Rails. Jobs
 
