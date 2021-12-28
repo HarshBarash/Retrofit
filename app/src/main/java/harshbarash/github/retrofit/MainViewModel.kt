@@ -29,108 +29,108 @@ class MainViewModel(private val repository: Repository): ViewModel() {
     val Jobs: MutableLiveData<Response<List<Job>>> = MutableLiveData()
 
 
-    fun pushPost(post: Post) {
-        viewModelScope.launch {
-            val response = repository.pushPost(post)
-            myResponse.value = response
-        }
-    }
-
-    fun pushPost2(userId: Int, id: Int, title: String, body: String) {
-        viewModelScope.launch {
-            val response = repository.pushPost2(userId, id, title, body)
-            myResponse.value = response
-        }
-    }
-
-    //dynamic
-    fun getPost(auth: String) {
-        viewModelScope.launch {
-            val  response = repository.getPost(auth)
-            myResponse.value = response
-        }
-    }
-
-    fun getPost2(number: Int) {
-        viewModelScope.launch {
-            val response = repository.getPost2(number)
-            myResponse2.value = response
-
-        }
-    }
-
-    fun getCustomPosts(userId: Int, sort: String, order: String) {
-        viewModelScope.launch {
-            val response = repository.getCustomPosts(userId, sort, order)
-            myCustomPosts.value = response
-        }
-    }
-
-    fun getCustomPosts2(userId: Int, options: Map<String, String>) {
-        viewModelScope.launch {
-            val response = repository.getCustomPosts2(userId, options)
-            myCustomPosts2.value = response
-        }
-    }
-
-    fun getPosts(sort: String, order: String) {
-        viewModelScope.launch {
-            val response = repository.getPosts(sort, order)
-            Posts.value = response
-        }
-    }
+//    fun pushPost(post: Post) {
+//        viewModelScope.launch {
+//            val response = repository.pushPost(post)
+//            myResponse.value = response
+//        }
+//    }
+//
+//    fun pushPost2(userId: Int, id: Int, title: String, body: String) {
+//        viewModelScope.launch {
+//            val response = repository.pushPost2(userId, id, title, body)
+//            myResponse.value = response
+//        }
+//    }
+//
+//    //dynamic
+//    fun getPost(auth: String) {
+//        viewModelScope.launch {
+//            val  response = repository.getPost(auth)
+//            myResponse.value = response
+//        }
+//    }
+//
+//    fun getPost2(number: Int) {
+//        viewModelScope.launch {
+//            val response = repository.getPost2(number)
+//            myResponse2.value = response
+//
+//        }
+//    }
+//
+//    fun getCustomPosts(userId: Int, sort: String, order: String) {
+//        viewModelScope.launch {
+//            val response = repository.getCustomPosts(userId, sort, order)
+//            myCustomPosts.value = response
+//        }
+//    }
+//
+//    fun getCustomPosts2(userId: Int, options: Map<String, String>) {
+//        viewModelScope.launch {
+//            val response = repository.getCustomPosts2(userId, options)
+//            myCustomPosts2.value = response
+//        }
+//    }
+//
+//    fun getPosts(sort: String, order: String) {
+//        viewModelScope.launch {
+//            val response = repository.getPosts(sort, order)
+//            Posts.value = response
+//        }
+//    }
 
     //Rails Jobs
 
 
-//    fun pushJob(job: Job) {
-//        viewModelScope.launch {
-//            val response = repository.pushJob(job)
-//            Response.value = response
-//        }
-//    }
-//
-//    fun pushJob2(id: Int, position: String, company: String, description: String) {
-//        viewModelScope.launch {
-//            val response = repository.pushJob2(id, company, position, description)
-//            Response.value = response
-//        }
-//    }
+    fun pushJob(job: Job) {
+        viewModelScope.launch {
+            val response = repository.pushJob(job)
+            Response.value = response
+        }
+    }
 
-    //dynamic
-//    fun getJob(auth: String) {
-//        viewModelScope.launch {
-//            val  response = repository.getJob(auth)
-//            Response.value = response
-//        }
-//    }
-//
-//    fun getJob2(number: Int) {
-//        viewModelScope.launch {
-//            val response = repository.getJob2(number)
-//            Response2.value = response
-//
-//        }
-//    }
-//
-//    fun getCustomJobs(id: Int, sort: String, order: String) {
-//        viewModelScope.launch {
-//            val response = repository.getCustomJobs(id, sort, order)
-//            CustomJobs.value = response
-//        }
-//    }
-//
-//    fun getCustomJobs2(id: Int, options: Map<String, String>) {
-//        viewModelScope.launch {
-//            val response = repository.getCustomJobs2(id, options)
-//            CustomJobs2.value = response
-//        }
-//    }
-//
-//    fun getJobs(sort: String, order: String) {
-//        viewModelScope.launch {
-//            val response = repository.getJobs(sort, order)
-//            Jobs.value = response
-//        }
-//    }
+    fun pushJob2(id: Int, position: String, company: String, description: String) {
+        viewModelScope.launch {
+            val response = repository.pushJob2(id, company, position, description)
+            Response.value = response
+        }
+    }
+
+//    dynamic
+    fun getJob(auth: String) {
+        viewModelScope.launch {
+            val  response = repository.getJob(auth)
+            Response.value = response
+        }
+    }
+
+    fun getJob2(number: Int) {
+        viewModelScope.launch {
+            val response = repository.getJob2(number)
+            Response2.value = response
+
+        }
+    }
+
+    fun getCustomJobs(id: Int, sort: String, order: String) {
+        viewModelScope.launch {
+            val response = repository.getCustomJobs(id, sort, order)
+            CustomJobs.value = response
+        }
+    }
+
+    fun getCustomJobs2(id: Int, options: Map<String, String>) {
+        viewModelScope.launch {
+            val response = repository.getCustomJobs2(id, options)
+            CustomJobs2.value = response
+        }
+    }
+
+    fun getJobs(sort: String, order: String) {
+        viewModelScope.launch {
+            val response = repository.getJobs(sort, order)
+            Jobs.value = response
+        }
+    }
 }

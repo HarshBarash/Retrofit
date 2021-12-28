@@ -39,14 +39,14 @@ class MainActivity : AppCompatActivity() {
         //dynamic control
         //viewModel.getPost("121")
 
-                viewModel.getPosts("id", "desc")
-
-                viewModel.Posts.observe(this, Observer { response ->
-            if(response.isSuccessful){
-                response.body()?.let { myAdapter.setData(it) }
-        }
-        })
-    }
+//                viewModel.getPosts("id", "desc")
+//
+//                viewModel.Posts.observe(this, Observer { response ->
+//            if(response.isSuccessful){
+//                response.body()?.let { myAdapter.setData(it) }
+//        }
+//        })
+//    }
 
 //        viewModel.pushPost2(2,2, "Title-test", "Body-test")
 
@@ -75,18 +75,18 @@ class MainActivity : AppCompatActivity() {
         //dynamic control
         //viewModel.getPost("121")
 
-//        viewModel.getJobs("id", "desc")
+        viewModel.getJobs("id", "asc")
 
 //        viewModel.pushJob2(2,"Junior", "Evrone", "They are the best. Ruby Life")
 
 
 
-//        viewModel.Jobs.observe(this, Observer { response ->
-//            if(response.isSuccessful){
-//                response.body()?.let { myAdapter.setData(it) }
-//        }
-//        })
-//    }
+        viewModel.Jobs.observe(this, Observer { response ->
+            if(response.isSuccessful){
+                response.body()?.let { myAdapter.setData(it) }
+        }
+        })
+    }
 
     private fun setupRecyclerView() {
         binding.RecyclerView.adapter = myAdapter
