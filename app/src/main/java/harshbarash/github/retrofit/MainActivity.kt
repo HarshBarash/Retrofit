@@ -3,15 +3,13 @@ package harshbarash.github.retrofit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.Observer
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import harshbarash.github.retrofit.adapter.MyAdapter
 import harshbarash.github.retrofit.databinding.ActivityMainBinding
-import harshbarash.github.retrofit.model.Post
+import harshbarash.github.retrofit.model.Job
 import harshbarash.github.retrofit.repository.Repository
 class MainActivity : AppCompatActivity() {
 
@@ -75,9 +73,10 @@ class MainActivity : AppCompatActivity() {
         //dynamic control
         //viewModel.getPost("121")
 
-        viewModel.getJobs("id", "asc")
+        viewModel.getJobs("id", "desc")
 
-//        viewModel.pushJob2(2,"Junior", "Evrone", "They are the best. Ruby Life")
+        val Job = Job(3,"Evrone", "Junior", "Ruby Life")
+        viewModel.pushJob(Job)
 
 
 

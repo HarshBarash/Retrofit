@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import harshbarash.github.retrofit.databinding.ItemLayoutBinding
 import harshbarash.github.retrofit.model.Job
-import harshbarash.github.retrofit.model.Post
 
 class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 

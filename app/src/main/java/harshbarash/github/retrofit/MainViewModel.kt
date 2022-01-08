@@ -90,7 +90,7 @@ class MainViewModel(private val repository: Repository): ViewModel() {
         }
     }
 
-    fun pushJob2(id: Int, position: String, company: String, description: String) {
+    fun pushJob2(id: Int, company: String,  position: String, description: String) {
         viewModelScope.launch {
             val response = repository.pushJob2(id, company, position, description)
             Response.value = response
