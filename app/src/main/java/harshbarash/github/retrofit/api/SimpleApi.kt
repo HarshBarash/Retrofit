@@ -2,6 +2,7 @@ package harshbarash.github.retrofit.api
 
 import harshbarash.github.retrofit.model.Job
 import harshbarash.github.retrofit.model.Post
+import harshbarash.github.retrofit.model.User
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -95,4 +96,33 @@ interface SimpleApi {
     @Query("_order") order: String
     ): Response<List<Job>>
 
+
+    //---------------------Rails. Devise localhost:3000--------------------------//
+
+
+    @POST("/api/v1/users/sign_in")
+    suspend fun pushSignIn(
+        @Body user: User
+    ): Response<User>
+
+
+    @POST("/api/v1/users")
+    suspend fun pushSignUp(
+        @Body user: User
+    ): Response<User>
+
+    @FormUrlEncoded
+    @POST("/api/v1/users")
+    suspend fun pushSignUp2(
+        @Field("email") email: String,
+        @Field("encrypted_password") encrypted_password: String,
+        @Field("name") name: String
+    ): Response<User>
+
+    @POST("/api/v1/users/password/new")
+    suspend fun pushReset(
+        @Field("email") email: String
+    ): Response<User>
+
 }
+

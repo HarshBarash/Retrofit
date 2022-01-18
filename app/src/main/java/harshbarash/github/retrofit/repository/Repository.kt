@@ -3,6 +3,7 @@ package harshbarash.github.retrofit.repository
 import harshbarash.github.retrofit.api.RetrofitInstance
 import harshbarash.github.retrofit.model.Job
 import harshbarash.github.retrofit.model.Post
+import harshbarash.github.retrofit.model.User
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.OPTIONS
@@ -68,6 +69,21 @@ class Repository {
 
     suspend fun getJobs(sort: String, order: String ): Response<List<Job>> {
         return RetrofitInstance.api.getJobs(sort, order)
+    }
+
+
+
+    //devise
+    suspend fun pushSignIn(user: User): Response<User> {
+        return RetrofitInstance.api.pushSignIn(user)
+    }
+
+    suspend fun pushSignUp(user: User): Response<User> {
+        return RetrofitInstance.api.pushSignUp(user)
+    }
+
+    suspend fun pushSignUp2(email: String, encrypted_password: String, name: String): Response<User> {
+        return RetrofitInstance.api.pushSignUp2(email, encrypted_password, name)
     }
 
 }

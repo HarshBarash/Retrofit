@@ -34,7 +34,6 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 //        holder.binding.bodyTxt.text = myList[position].body
 
         // Rails LOCALHOST:3001
-        holder.binding.userIdTxt.text = myList[position].id.toString()
         holder.binding.idTxt.text = myList[position].company
         holder.binding.titleTxt.text = myList[position].position
         holder.binding.bodyTxt.text = myList[position].description

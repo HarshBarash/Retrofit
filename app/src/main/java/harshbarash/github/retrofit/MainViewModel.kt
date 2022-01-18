@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import harshbarash.github.retrofit.model.Job
 import harshbarash.github.retrofit.model.Post
+import harshbarash.github.retrofit.model.User
 import harshbarash.github.retrofit.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -12,7 +13,6 @@ import retrofit2.http.OPTIONS
 
 class MainViewModel(private val repository: Repository): ViewModel() {
 
-    //Json PlaceHolder Posts
 
     val myResponse: MutableLiveData<Response<Post>> = MutableLiveData()
     val myResponse2: MutableLiveData<Response<Post>> = MutableLiveData()
@@ -27,7 +27,17 @@ class MainViewModel(private val repository: Repository): ViewModel() {
 
     val Posts: MutableLiveData<Response<List<Post>>> = MutableLiveData()
     val Jobs: MutableLiveData<Response<List<Job>>> = MutableLiveData()
+    val Users: MutableLiveData<Response<List<User>>> = MutableLiveData()
 
+
+    val ResponseUser: MutableLiveData<Response<User>> = MutableLiveData()
+    val Response2User: MutableLiveData<Response<User>> = MutableLiveData()
+    val CustomUsers2: MutableLiveData<Response<List<User>>> = MutableLiveData()
+
+
+    val SignInUsers: MutableLiveData<Response<User>> = MutableLiveData()
+
+    //Json PlaceHolder Posts
 
 //    fun pushPost(post: Post) {
 //        viewModelScope.launch {
@@ -82,7 +92,6 @@ class MainViewModel(private val repository: Repository): ViewModel() {
 
     //Rails Jobs
 
-
     fun pushJob(job: Job) {
         viewModelScope.launch {
             val response = repository.pushJob(job)
@@ -133,4 +142,32 @@ class MainViewModel(private val repository: Repository): ViewModel() {
             Jobs.value = response
         }
     }
+
+
+    //devise
+
+    fun pushSignIn(user: User) {
+        viewModelScope.launch {
+            val response = repository.pushSignIn(user)
+            ResponseUser.value = response
+        }
+    }
+
+    fun pushSignUp(user: User) {
+        viewModelScope.launch {
+            val response = repository.pushSignUp(user)
+            ResponseUser.value = response
+        }
+    }
+
+
+        fun pushSIgnUp2(email: String, encrypted_password: String, name: String) {
+        viewModelScope.launch {
+            val response = repository.pushSignUp2(email, encrypted_password, name)
+            ResponseUser.value = response
+        }
+    }
+
+
+
 }

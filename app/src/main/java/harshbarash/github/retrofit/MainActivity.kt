@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import harshbarash.github.retrofit.adapter.MyAdapter
 import harshbarash.github.retrofit.databinding.ActivityMainBinding
 import harshbarash.github.retrofit.model.Job
+import harshbarash.github.retrofit.model.User
 import harshbarash.github.retrofit.repository.Repository
 class MainActivity : AppCompatActivity() {
 
@@ -68,14 +69,10 @@ class MainActivity : AppCompatActivity() {
 
 
         //-------------------------Rails Jobs ---------------------------
-        //что стоит перед backlash, это комментаровано. OLD
-
-        //dynamic control
-        //viewModel.getPost("121")
 
         viewModel.getJobs("id", "desc")
 
-        val Job = Job(3,"Evrone", "Junior", "Ruby Life")
+        val Job = Job(3,"Evrone", "Junior", "h")
         viewModel.pushJob(Job)
 
 
@@ -83,8 +80,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.Jobs.observe(this, Observer { response ->
             if(response.isSuccessful){
                 response.body()?.let { myAdapter.setData(it) }
-        }
+            }
         })
+
+        //-------------------------Rails Users ---------------------------
+
+
+        viewModel.pushSIgnUp2( "test@gmail.com", "pass", "Anton")
+
     }
 
     private fun setupRecyclerView() {
